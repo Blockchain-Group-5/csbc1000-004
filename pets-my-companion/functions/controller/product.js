@@ -1,8 +1,9 @@
-const {v4: uuid4, validate} = require("uuid");
-const {create,show,update} = require("../model/product")
+const {v4: uuidv4} = require("uuid");
+const {create, show, update, remove} = require("../model/product")
 // const {default: Ajv} = require("ajv");
-// const ajv = new Ajv;
-
+// 
+// const ajv = new Ajv();
+// 
 // const schema = {
 //     type: 'object',
 //     properties: {
@@ -46,13 +47,13 @@ const createProduct = async (req, res) => {
         // }
 
         let product = req.body;
-        product["product_id"] = uuid4;
+        product["product_id"] = uuidv4();
         product["in_stock"] = true;
         await create(product);
 
         res.status(201).json({
             product_id: product.product_id, 
-            message: `successfully added product with id ${product_id}`
+            message: `successfully added product with id ${product.product_id}`
         });
     } catch (error) {
         res.status(400).json({
@@ -64,9 +65,9 @@ const createProduct = async (req, res) => {
 const showProduct = async (req, res) => {
     try {
         let productId = req.params.id;
-        let Product = await show(productId);
+        let result = await show(productId);
 
-        res.status(201).json(Product);
+        res.status(200).json(result.data());
     }
     catch (error) {
         res.status(400).json({
@@ -77,11 +78,15 @@ const showProduct = async (req, res) => {
 
 const updateStock = async (req,res) => {
     try {
+        // const isValid = updateValidate(req.body);
+        // if(!isValid) {
+        //     return res.status(400).send(`The field ${updateValidate.errors[0].instancePath.substring(1)} ${updateValidate.errors[0].message}`)
+        // }
         let product_id = req.params.id;
         let Product = req.body;
         await update(product_id, Product);
         const productResult = await show(product_id);
-        res.status(201).json(productResult);
+        res.status(201).json(productResult.data());
     } catch (error) {
         res.status(400).json({
             error: error,
@@ -89,17 +94,21 @@ const updateStock = async (req,res) => {
     }
 }
 
-// const removeProduct = async (req,res) => {
-//      try {
-//         let product_id = req.params.id;
-//         await remove(product_id);
-//         res.status(201).json(product_id);
-//      }
-//      catch (error) {
-//         res.status(400).json({
-//             error: error,
-//         });
-//      }
-// }
+const removeProduct = async (req,res) => {
+     try {
+        let product_id = req.params.id;
+        const result = await retrieve(id);
+        if(result.data() == undefined) {
+            throw new Error(`Product with id ${product_id} does not exist`);
+        }
+        await remove(product_id);
+        res.status(201).send(`Successfully deleted Product with id ${product_id}`);
+     }
+     catch (error) {
+        res.status(400).json({
+            error: error,
+        });
+     }
+}
 
-module.exports = {createProduct, showProduct, updateStock}
+module.exports = {createProduct, showProduct, updateStock, removeProduct};

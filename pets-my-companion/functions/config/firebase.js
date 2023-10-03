@@ -14,4 +14,4 @@ const getAPI = () => {
     return functions.https.onRequest(main);
 
 }
-module.export = { initApp, getDB, getAPI }
+module.exports = { initApp, getDB, getAPI };
