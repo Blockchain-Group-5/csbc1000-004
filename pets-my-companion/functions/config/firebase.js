@@ -1,5 +1,8 @@
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
+const express = require("express");
+
+const main = express();
 
 // initialize firebase to access its services
 const initApp = () => {
