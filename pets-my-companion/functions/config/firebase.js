@@ -1,8 +1,6 @@
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
-const express = require("express");
-
-const main = express();
+// const express = require("express");
 
 // initialize firebase to access its services
 const initApp = () => {
@@ -13,7 +11,7 @@ const getDB = () => {
     return admin.firestore();
 }
 
-const getAPI = () => {
+const getAPI = (main) => {
     return functions.https.onRequest(main);
 
 }

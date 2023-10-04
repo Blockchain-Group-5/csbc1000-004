@@ -12,13 +12,14 @@ const create = async(product) => {
 }
 
 // Retrieve
-const show = async(product_id) => {
-    await db.collection(productCollection).doc(product_id).get();
+const show = async(id) => {
+    // console.log(product_id);
+    return await (await db.collection(productCollection).doc(id).get()).data();
 }
 
 // Update
-const update = async(product_id, product) => {
-    await db.collection(productCollection).doc(product_id).set(product, {merge:true});
+const update = async(id, product) => {
+    await db.collection(productCollection).doc(id).set(product, {merge:true});
 }
 
 // Remove

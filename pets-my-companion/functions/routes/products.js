@@ -7,7 +7,7 @@ const router = Router();
 router.post("/product/create_product", createProduct);
 
 // Retrieve Product record
-router.get("/product/show_product/:product_id", showProduct);
+router.get("/product/show_product/:id", showProduct);
 
 // Filter Product records
 

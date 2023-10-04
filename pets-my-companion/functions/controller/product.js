@@ -64,10 +64,11 @@ const createProduct = async (req, res) => {
 
 const showProduct = async (req, res) => {
     try {
-        let productId = req.params.id;
-        let result = await show(productId);
+        const productId = req.params.id;
+        // console.log(req.params)
+        const product = await show(productId);
 
-        res.status(200).json(result.data());
+        res.status(200).json(product);
     }
     catch (error) {
         res.status(400).json({
