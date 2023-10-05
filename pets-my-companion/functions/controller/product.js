@@ -1,5 +1,5 @@
 const {v4: uuidv4} = require("uuid");
-const {create, show, update, remove} = require("../model/product");
+const {create, showAll, show, update, remove} = require("../model/product");
 const {createProductValidator, validate} = require("../validators/product");
 const {calculateTotal} = require("../service/product");
 const {createPaymentFn} = require("../service/payment");
@@ -21,6 +21,27 @@ const createProduct = async (req, res) => {
         res.status(400).send(error.message);
     }
 };
+
+const products = async (req, res) => {
+    try {
+        const result = await showAll();
+        const all_products = [];
+
+        result.forEach(doc => {
+            all_products.push({
+              id: doc.id,
+              data: doc.data()
+            })
+          });
+
+        res.status(200).json(all_products);
+    }
+    catch (error) {
+        res.status(400).json({
+            error: error,
+        });
+    }
+}
 
 const showProduct = async (req, res) => {
     try {
@@ -77,6 +98,31 @@ const removeProduct = async (req,res) => {
      }
 }
 
+const filter_products = async (req,res) => {
+    try {
+        const filters = req.query; 
+        const result = await showAll();
+        const products = [];
+
+        result.forEach(doc => {
+            products.push(doc.data())
+        });
+
+        const filteredProducts = products.filter(product => { 
+            let isProductValid = true; 
+            for (key in filters) { 
+              isProductValid = isProductValid && product[key] == filters[key]; 
+            } 
+            return isProductValid; 
+        });
+        res.status(201).json(filteredProducts);
+    } catch (error) {
+        res.status(400).json({
+            error: error,
+        });
+    }
+}
+
 const purchaseProduct = async (req, res) => {
     try {
         const productId = req.params.product_id;
@@ -105,4 +151,4 @@ const purchaseProduct = async (req, res) => {
     }
 }
 
-module.exports = {createProduct, showProduct, updateStock, removeProduct, purchaseProduct};
+module.exports = {createProduct, products, showProduct, updateStock, removeProduct, purchaseProduct, filter_products};

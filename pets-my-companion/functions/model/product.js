@@ -11,6 +11,11 @@ const create = async(product) => {
     .set(Object.assign({}, product));
 }
 
+//  Get all products
+const showAll = async() => {
+    return await (await db.collection(productCollection).get());
+}
+
 // Retrieve
 const show = async(id) => {
     // console.log(product_id);
@@ -26,4 +31,4 @@ const update = async(id, product) => {
 const remove = async (product_id) => {
     await db.collection(productCollection).doc(product_id).delete();
 }
-module.exports = {create, show, update, remove};
+module.exports = {create, showAll, show, update, remove};
