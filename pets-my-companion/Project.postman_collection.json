@@ -1,0 +1,789 @@
+{
+	"info": {
+		"_postman_id": "8dc4ccb0-d98f-42a3-9ca4-9c58eb923c35",
+		"name": "Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8347342"
+	},
+	"item": [
+		{
+			"name": "create new post for product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"johny\",\r\n    \"type\": \"Dog\",\r\n    \"breed\": \"Cute fuury\",\r\n    \"age\": 2,\r\n    \"description\": \"It's a dog\",\r\n    \"price\": 10,\r\n    \"location\": \"Toronto, Canada\",\r\n    \"contact_details\": \"4152874512\",\r\n    \"image\": \"https://www.shutterstock.com/image-photo/dog-jack-russell-terrier-gnaws-on-2176681041\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/product/create_product",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"product",
+						"create_product"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successfully added product",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"johny\",\r\n    \"type\": \"Dog\",\r\n    \"breed\": \"Cute fuury\",\r\n    \"age\": 2,\r\n    \"description\": \"It's a dog\",\r\n    \"price\": 10,\r\n    \"location\": \"Toronto, Canada\",\r\n    \"contact_details\": \"4152874512\",\r\n    \"image\": \"https://www.shutterstock.com/image-photo/dog-jack-russell-terrier-gnaws-on-2176681041\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/product/create_product",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"product",
+								"create_product"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "content-length",
+							"value": "137"
+						},
+						{
+							"key": "etag",
+							"value": "W/\"89-kHF/CxaouHZ71iWVw3RtU8HzYug\""
+						},
+						{
+							"key": "date",
+							"value": "Thu, 05 Oct 2023 01:13:21 GMT"
+						},
+						{
+							"key": "connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "keep-alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"product_id\": \"4ec559b7-4985-41a0-b731-1d231d8d5983\",\n    \"message\": \"successfully added product with id 4ec559b7-4985-41a0-b731-1d231d8d5983\"\n}"
+				}
+			]
+		},
+		{
+			"name": "get all products",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/product/products",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"product",
+						"products"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get products successfuuly",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/product/products",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"product",
+								"products"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "content-length",
+							"value": "2208"
+						},
+						{
+							"key": "etag",
+							"value": "W/\"8a0-DWCQwsxAed39ZkzCk3EYXswHdGA\""
+						},
+						{
+							"key": "date",
+							"value": "Thu, 05 Oct 2023 01:14:14 GMT"
+						},
+						{
+							"key": "connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "keep-alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"371264bc-c887-4bea-b3a9-e60fedf33232\",\n        \"data\": {\n            \"image\": \"https://www.shutterstock.com/image-photo/dog-jack-russell-terrier-gnaws-on-2176681041\",\n            \"price\": 10,\n            \"product_id\": \"371264bc-c887-4bea-b3a9-e60fedf33232\",\n            \"name\": \"johny\",\n            \"description\": \"It's a dog\",\n            \"location\": \"Toronto, Canada\",\n            \"contact_details\": \"4152874512\",\n            \"type\": \"Dog\",\n            \"in_stock\": true,\n            \"breed\": \"Cute fuury\",\n            \"age\": 2\n        }\n    },\n    {\n        \"id\": \"49dccea8-4e06-4683-b0b4-e2561a3fafcc\",\n        \"data\": {\n            \"image\": \"https://www.shutterstock.com/image-photo/dog-jack-russell-terrier-gnaws-on-2176681041\",\n            \"price\": 10,\n            \"product_id\": \"49dccea8-4e06-4683-b0b4-e2561a3fafcc\",\n            \"name\": \"jack\",\n            \"description\": \"It's a dog\",\n            \"location\": \"Toronto, Canada\",\n            \"contact_details\": \"4152874512\",\n            \"type\": \"Dog\",\n            \"in_stock\": true,\n            \"breed\": \"German Shephard\",\n            \"age\": 2\n        }\n    },\n    {\n        \"id\": \"4ec559b7-4985-41a0-b731-1d231d8d5983\",\n        \"data\": {\n            \"image\": \"https://www.shutterstock.com/image-photo/dog-jack-russell-terrier-gnaws-on-2176681041\",\n            \"price\": 10,\n            \"product_id\": \"4ec559b7-4985-41a0-b731-1d231d8d5983\",\n            \"name\": \"johny\",\n            \"description\": \"It's a dog\",\n            \"location\": \"Toronto, Canada\",\n            \"contact_details\": \"4152874512\",\n            \"type\": \"Dog\",\n            \"in_stock\": true,\n            \"breed\": \"Cute fuury\",\n            \"age\": 2\n        }\n    },\n    {\n        \"id\": \"97908445-beb9-430e-9012-d377cc3a036e\",\n        \"data\": {\n            \"image\": \"https://www.shutterstock.com/image-photo/dog-jack-russell-terrier-gnaws-on-2176681041\",\n            \"price\": 10,\n            \"product_id\": \"97908445-beb9-430e-9012-d377cc3a036e\",\n            \"location\": \"Toronto, Canada\",\n            \"contact_details\": \"4152874512\",\n            \"in_stock\": true,\n            \"breed\": \"Cute fuury\",\n            \"age\": 2,\n            \"name\": \"anny\",\n            \"description\": \"It's a white cat and she is moody\",\n            \"type\": \"cat\"\n        }\n    },\n    {\n        \"id\": \"b4aaf48f-d624-4573-95a4-b55d30ba431e\",\n        \"data\": {\n            \"image\": \"https://www.shutterstock.com/image-photo/dog-jack-russell-terrier-gnaws-on-2176681041\",\n            \"price\": 10,\n            \"name\": \"suzu\",\n            \"description\": \"It's a dog\",\n            \"contact_details\": \"4152874512\",\n            \"location\": \"Toronto, Canada\",\n            \"type\": \"cat\",\n            \"age\": 2,\n            \"breed\": \"German Shephard\"\n        }\n    },\n    {\n        \"id\": \"fc6d85bc-53d6-4f76-b516-924f30b09f9e\",\n        \"data\": {\n            \"image\": \"https://www.shutterstock.com/image-photo/dog-jack-russell-terrier-gnaws-on-2176681041\",\n            \"price\": 10,\n            \"product_id\": \"fc6d85bc-53d6-4f76-b516-924f30b09f9e\",\n            \"name\": \"jack\",\n            \"description\": \"It's a dog\",\n            \"location\": \"Toronto, Canada\",\n            \"contact_details\": \"4152874512\",\n            \"type\": \"Dog\",\n            \"in_stock\": true,\n            \"breed\": \"I doont know\",\n            \"age\": 2\n        }\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "show product",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/product/show_product/97908445-beb9-430e-9012-d377cc3a036e",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"product",
+						"show_product",
+						"97908445-beb9-430e-9012-d377cc3a036e"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "show product",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/product/show_product/b4aaf48f-d624-4573-95a4-b55d30ba431e",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"product",
+								"show_product",
+								"b4aaf48f-d624-4573-95a4-b55d30ba431e"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "content-length",
+							"value": "273"
+						},
+						{
+							"key": "etag",
+							"value": "W/\"111-8eIsZXTnWQ21KkHZ0mMei/CBaa0\""
+						},
+						{
+							"key": "date",
+							"value": "Thu, 05 Oct 2023 01:20:23 GMT"
+						},
+						{
+							"key": "connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "keep-alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"image\": \"https://www.shutterstock.com/image-photo/dog-jack-russell-terrier-gnaws-on-2176681041\",\n    \"price\": 10,\n    \"name\": \"suzu\",\n    \"description\": \"It's a dog\",\n    \"contact_details\": \"4152874512\",\n    \"location\": \"Toronto, Canada\",\n    \"type\": \"cat\",\n    \"age\": 2,\n    \"breed\": \"German Shephard\",\n    \"in_stock\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "update product details",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"breed\": \"Pug\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/product/update_stock/371264bc-c887-4bea-b3a9-e60fedf33232",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"product",
+						"update_stock",
+						"371264bc-c887-4bea-b3a9-e60fedf33232"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "update product details",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"breed\": \"Pug\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/product/update_stock/371264bc-c887-4bea-b3a9-e60fedf33232",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"product",
+								"update_stock",
+								"371264bc-c887-4bea-b3a9-e60fedf33232"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "content-length",
+							"value": "313"
+						},
+						{
+							"key": "etag",
+							"value": "W/\"139-5y+AVvrEaK3Ev6Gw9pOBAiuISMY\""
+						},
+						{
+							"key": "date",
+							"value": "Thu, 05 Oct 2023 01:33:48 GMT"
+						},
+						{
+							"key": "connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "keep-alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"image\": \"https://www.shutterstock.com/image-photo/dog-jack-russell-terrier-gnaws-on-2176681041\",\n    \"price\": 10,\n    \"product_id\": \"371264bc-c887-4bea-b3a9-e60fedf33232\",\n    \"name\": \"johny\",\n    \"description\": \"It's a dog\",\n    \"location\": \"Toronto, Canada\",\n    \"contact_details\": \"4152874512\",\n    \"type\": \"Dog\",\n    \"in_stock\": true,\n    \"age\": 2,\n    \"breed\": \"Pug\"\n}"
+				}
+			]
+		},
+		{
+			"name": "delete product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/product/remove_product/06756185-437f-40b8-89b9-02a96d6d4179",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"product",
+						"remove_product",
+						"06756185-437f-40b8-89b9-02a96d6d4179"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "suceessfully deleted product",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/product/remove_product/06756185-437f-40b8-89b9-02a96d6d4179",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"product",
+								"remove_product",
+								"06756185-437f-40b8-89b9-02a96d6d4179"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "content-type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "content-length",
+							"value": "73"
+						},
+						{
+							"key": "etag",
+							"value": "W/\"49-LDN0C8EwkBQ3qFgXtFYkdufFI+I\""
+						},
+						{
+							"key": "date",
+							"value": "Thu, 05 Oct 2023 01:04:33 GMT"
+						},
+						{
+							"key": "connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "keep-alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "Successfully deleted Product with id 06756185-437f-40b8-89b9-02a96d6d4179"
+				},
+				{
+					"name": "product not exist",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/product/remove_product/06756185-437f-40b8-89b9-02a96d6d4179",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"product",
+								"remove_product",
+								"06756185-437f-40b8-89b9-02a96d6d4179"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "content-type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "content-length",
+							"value": "67"
+						},
+						{
+							"key": "etag",
+							"value": "W/\"43-/12wbUCgLZp95uJCuhB1wZTenPQ\""
+						},
+						{
+							"key": "date",
+							"value": "Thu, 05 Oct 2023 01:10:53 GMT"
+						},
+						{
+							"key": "connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "keep-alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "Product with id 06756185-437f-40b8-89b9-02a96d6d4179 does not exist"
+				}
+			]
+		},
+		{
+			"name": "filter products",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/product/filter?breed=Pug",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"product",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "breed",
+							"value": "Pug"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get product with filter",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/product/filter?breed=Pug",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"product",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "breed",
+									"value": "Pug"
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "content-length",
+							"value": "315"
+						},
+						{
+							"key": "etag",
+							"value": "W/\"13b-5p0CZ9T5Gniyv1c8ouXxhQopYXo\""
+						},
+						{
+							"key": "date",
+							"value": "Thu, 05 Oct 2023 01:35:04 GMT"
+						},
+						{
+							"key": "connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "keep-alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"image\": \"https://www.shutterstock.com/image-photo/dog-jack-russell-terrier-gnaws-on-2176681041\",\n        \"price\": 10,\n        \"product_id\": \"371264bc-c887-4bea-b3a9-e60fedf33232\",\n        \"name\": \"johny\",\n        \"description\": \"It's a dog\",\n        \"location\": \"Toronto, Canada\",\n        \"contact_details\": \"4152874512\",\n        \"type\": \"Dog\",\n        \"in_stock\": true,\n        \"age\": 2,\n        \"breed\": \"Pug\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "purchase product",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/product/purchase/371264bc-c887-4bea-b3a9-e60fedf33232",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"product",
+						"purchase",
+						"371264bc-c887-4bea-b3a9-e60fedf33232"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "succesfully order placed",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/product/purchase/b4aaf48f-d624-4573-95a4-b55d30ba431e",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"product",
+								"purchase",
+								"b4aaf48f-d624-4573-95a4-b55d30ba431e"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "content-type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "content-length",
+							"value": "76"
+						},
+						{
+							"key": "etag",
+							"value": "W/\"4c-HJe4e5bagtIVsRIzGahyAOIVxkM\""
+						},
+						{
+							"key": "date",
+							"value": "Thu, 05 Oct 2023 01:19:17 GMT"
+						},
+						{
+							"key": "connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "keep-alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "Successfully Order Placed with Order id 4742ef92-f6ca-4947-827a-a34b6440866a"
+				},
+				{
+					"name": "successfully order placed",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/product/purchase/371264bc-c887-4bea-b3a9-e60fedf33232",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"product",
+								"purchase",
+								"371264bc-c887-4bea-b3a9-e60fedf33232"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "content-type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "content-length",
+							"value": "76"
+						},
+						{
+							"key": "etag",
+							"value": "W/\"4c-LBayL9b6hfIUnsQDmdRUvpEIGPA\""
+						},
+						{
+							"key": "date",
+							"value": "Thu, 05 Oct 2023 01:38:30 GMT"
+						},
+						{
+							"key": "connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "keep-alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "Successfully Order Placed with Order id c8b1a538-60d9-41db-acd0-6ce4c78e3c87"
+				}
+			]
+		}
+	]
+}
