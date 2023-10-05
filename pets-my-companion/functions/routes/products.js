@@ -1,5 +1,5 @@
 const {Router} = require("express");
-const {createProduct, showProduct, updateStock, removeProduct} = require("../controller/product");
+const {createProduct, showProduct, updateStock, removeProduct, purchaseProduct} = require("../controller/product");
 
 const router = Router();
 
@@ -16,5 +16,8 @@ router.put("/product/update_stock/:product_id", updateStock);
 
 // Remove Product record
 router.delete("/product/remove_product/:product_id", removeProduct);
+
+// Purchase a Product
+router.get("/product/purchase/:product_id", purchaseProduct);
 
 module.exports = router;

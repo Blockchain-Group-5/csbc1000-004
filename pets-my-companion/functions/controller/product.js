@@ -1,6 +1,9 @@
 const {v4: uuidv4} = require("uuid");
 const {create, show, update, remove} = require("../model/product");
 const {createProductValidator, validate} = require("../validators/product");
+const {calculateTotal} = require("../service/product");
+const {createPaymentFn} = require("../service/payment");
+const {createOrderFn} = require("../service/order");
 
 const createProduct = async (req, res) => {
     try {
@@ -74,4 +77,32 @@ const removeProduct = async (req,res) => {
      }
 }
 
-module.exports = {createProduct, showProduct, updateStock, removeProduct};
+const purchaseProduct = async (req, res) => {
+    try {
+        const productId = req.params.product_id;
+        const result = await show(productId);
+        if (result == undefined) {
+            throw new Error(`Product with id ${productId} does not exist`);
+        }
+
+        if (result.in_stock == false) {
+            throw new Error(`Product with id ${productId} is not in stock`);
+        }
+
+        // Order Placing
+        const total = calculateTotal(result.price);
+        const payment_id = createPaymentFn(productId, total);
+        const order_id = createOrderFn(productId, payment_id);
+
+        // To change the product stock status
+        result.in_stock = false;
+        await update(productId, result);
+
+        res.status(201).send(`Successfully Order Placed with Order id ${order_id}`);
+    }
+    catch (error) {
+        res.status(400).send(error.message);
+    }
+}
+
+module.exports = {createProduct, showProduct, updateStock, removeProduct, purchaseProduct};
